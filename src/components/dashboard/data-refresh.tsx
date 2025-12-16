@@ -10,21 +10,21 @@ export function DataRefresh() {
   const { toast } = useToast();
 
   const handleRefresh = () => {
-    // In a real app, you would fetch new data here.
-    // For now, we'll just simulate it.
+    // In a real app, you would fetch new data here for weather, news, etc.
     const now = new Date();
     setLastUpdated(now);
     toast({
       title: 'डाटा ताजा गरियो',
-      description: `सबै जानकारी सफलतापूर्वक ताजा गरिएको छ।`,
+      description: `मौसम र समाचार प्रति घण्टा ताजा गरिन्छ। अन्य सबै डाटा दैनिक ताजा गरिन्छ।`,
     });
   };
 
   useEffect(() => {
     // Set initial update time
-    setLastUpdated(new Date());
+    const now = new Date();
+    setLastUpdated(now);
 
-    // Refresh data every hour
+    // Refresh data every hour for news and weather
     const interval = setInterval(() => {
       handleRefresh();
     }, 1000 * 60 * 60); // 1 hour
@@ -36,6 +36,8 @@ export function DataRefresh() {
   const timeAgo = (date: Date | null) => {
     if (!date) return '';
     const seconds = Math.floor((new Date().getTime() - date.getTime()) / 1000);
+    if (seconds < 5) return 'अहिले भर्खरै';
+    
     let interval = seconds / 31536000;
     if (interval > 1) return Math.floor(interval) + ' वर्ष पहिले';
     interval = seconds / 2592000;
@@ -46,7 +48,7 @@ export function DataRefresh() {
     if (interval > 1) return Math.floor(interval) + ' घण्टा पहिले';
     interval = seconds / 60;
     if (interval > 1) return Math.floor(interval) + ' मिनेट पहिले';
-    return 'अहिले भर्खरै';
+    return Math.floor(seconds) + ' सेकेन्ड पहिले';
   };
 
   return (
