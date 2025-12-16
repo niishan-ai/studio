@@ -2,7 +2,7 @@ import { DateTime } from '@/components/dashboard/date-time';
 import { Weather } from '@/components/dashboard/weather';
 import { News } from '@/components/dashboard/news';
 import { Horoscope } from '@/components/dashboard/horoscope';
-import { CalendarEvents } from '@/components/dashboard/calendar-events';
+import { NepaliCalendar } from '@/components/dashboard/nepali-calendar';
 import { MusicPlayer } from '@/components/dashboard/music-player';
 import { SecurityCamera } from '@/components/dashboard/security-camera';
 import { Radio } from '@/components/dashboard/radio';
@@ -25,8 +25,8 @@ export default function Home() {
           
           <Weather />
           <Horoscope />
-          <CalendarEvents />
           <Radio />
+          <NepaliCalendar />
           
           <div className="sm:col-span-2 lg:col-span-4 xl:col-span-5 grid grid-cols-1 xl:grid-cols-5 gap-6">
             <div className="xl:col-span-2 h-full">

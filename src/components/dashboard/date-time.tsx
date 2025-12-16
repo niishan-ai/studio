@@ -13,11 +13,11 @@ export function DateTime() {
     return () => clearInterval(timer);
   }, []);
 
-  const nepaliDate = "२०८१ मंसिर १"; 
-  const nepaliDay = "आइतबार"; 
+  const nepaliDate = "२०८२ पुष १"; 
+  const nepaliDay = "मंगलबार"; 
   
-  const day = time ? time.toLocaleDateString('ne-NP', { weekday: 'long' }) : '...';
-  const formattedTime = time ? time.toLocaleTimeString('ne-NP', { hour: 'numeric', minute: 'numeric', hour12: true }) : '...';
+  const day = time ? time.toLocaleDateString('en-US', { weekday: 'long' }) : '...';
+  const formattedTime = time ? time.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }) : '...';
 
   return (
     <Card className="bg-gradient-to-br from-orange-50 to-teal-50 dark:from-orange-900/20 dark:to-teal-900/20 w-full">
