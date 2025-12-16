@@ -13,20 +13,21 @@ export function DateTime() {
     return () => clearInterval(timer);
   }, []);
 
-  const nepaliDate = "2081 Jestha 22"; // Mock Nepali Date
-  const nepaliDay = "Wednesday"; // Mock day for the mock date
+  const nepaliDate = "२०८१ जेठ २२"; 
+  const nepaliDay = "बुधबार"; 
   
-  const day = time ? time.toLocaleDateString('en-US', { weekday: 'long' }) : '...';
+  const day = time ? time.toLocaleDateString('ne-NP', { weekday: 'long' }) : '...';
+  const formattedTime = time ? time.toLocaleTimeString('ne-NP', { hour: 'numeric', minute: 'numeric', hour12: true }) : '...';
 
   return (
-    <Card className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 w-full">
+    <Card className="bg-gradient-to-br from-orange-50 to-teal-50 dark:from-orange-900/20 dark:to-teal-900/20 w-full">
       <CardContent className="p-6">
         <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
           <div>
             <div className="flex items-center gap-2 text-primary">
               <Clock className="w-5 h-5" />
               <p className="text-4xl font-bold tracking-tighter">
-                {time ? time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }) : '...'}
+                {formattedTime}
               </p>
             </div>
             <p className="text-muted-foreground mt-1">{day}</p>

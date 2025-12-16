@@ -7,7 +7,7 @@ export function SecurityCamera() {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-sm font-medium">Security Cameras</CardTitle>
+        <CardTitle className="text-sm font-medium">सुरक्षा क्यामेरा</CardTitle>
         <Video className="w-6 h-6 text-primary" />
       </CardHeader>
       <CardContent>

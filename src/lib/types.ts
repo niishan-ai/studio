@@ -13,7 +13,7 @@ export type NewsArticle = {
   url: string;
 };
 
-export type ZodiacSign = 'Aries' | 'Taurus' | 'Gemini' | 'Cancer' | 'Leo' | 'Virgo' | 'Libra' | 'Scorpio' | 'Sagittarius' | 'Capricorn' | 'Aquarius' | 'Pisces';
+export type ZodiacSign = 'मेष' | 'वृष' | 'मिथुन' | 'कर्कट' | 'सिंह' | 'कन्या' | 'तुला' | 'वृश्चिक' | 'धनु' | 'मकर' | 'कुम्भ' | 'मीन';
 
 export type HoroscopeData = {
   [key in ZodiacSign]: string;

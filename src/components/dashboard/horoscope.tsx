@@ -8,24 +8,24 @@ import type { ZodiacSign } from '@/lib/types';
 import { Sparkles } from 'lucide-react';
 
 const zodiacEmojis: Record<ZodiacSign, string> = {
-  Aries: '♈', Taurus: '♉', Gemini: '♊', Cancer: '♋', Leo: '♌', Virgo: '♍',
-  Libra: '♎', Scorpio: '♏', Sagittarius: '♐', Capricorn: '♑', Aquarius: '♒', Pisces: '♓'
+  "मेष": '♈', "वृष": '♉', "मिथुन": '♊', "कर्कट": '♋', "सिंह": '♌', "कन्या": '♍',
+  "तुला": '♎', "वृश्चिक": '♏', "धनु": '♐', "मकर": '♑', "कुम्भ": '♒', "मीन": '♓'
 };
 
 export function Horoscope() {
-  const [selectedSign, setSelectedSign] = useState<ZodiacSign>('Aries');
+  const [selectedSign, setSelectedSign] = useState<ZodiacSign>('मेष');
 
   return (
     <Card className="h-full">
       <CardHeader>
         <div className="flex items-center justify-between">
-            <CardTitle className="text-sm font-medium">Daily Horoscope</CardTitle>
+            <CardTitle className="text-sm font-medium">दैनिक राशिफल</CardTitle>
             <Sparkles className="w-6 h-6 text-primary" />
         </div>
         <div className="pt-2">
             <Select onValueChange={(value: ZodiacSign) => setSelectedSign(value)} defaultValue={selectedSign}>
                 <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select your zodiac sign" />
+                    <SelectValue placeholder="आफ्नो राशि छान्नुहोस्" />
                 </SelectTrigger>
                 <SelectContent>
                     {zodiacSigns.map(sign => (

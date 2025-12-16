@@ -25,7 +25,7 @@ export function MusicPlayer() {
   return (
     <Card className="flex flex-col h-full">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-sm font-medium">FM Radio</CardTitle>
+        <CardTitle className="text-sm font-medium">एफएम रेडियो</CardTitle>
         <Radio className="w-6 h-6 text-primary" />
       </CardHeader>
       <CardContent className="flex-grow flex flex-col items-center justify-center text-center p-6">
@@ -43,15 +43,15 @@ export function MusicPlayer() {
         <div className="flex items-center gap-4 mt-6">
           <Button variant="ghost" size="icon" onClick={handlePrev}>
             <SkipBack className="w-6 h-6" />
-            <span className="sr-only">Previous Station</span>
+            <span className="sr-only">अघिल्लो स्टेशन</span>
           </Button>
           <Button variant="default" size="icon" className="w-16 h-16 rounded-full shadow-lg" onClick={handlePlayPause}>
             {isPlaying ? <Pause className="w-8 h-8" /> : <Play className="w-8 h-8 fill-current" />}
-            <span className="sr-only">{isPlaying ? 'Pause' : 'Play'}</span>
+            <span className="sr-only">{isPlaying ? 'पज' : 'प्ले'}</span>
           </Button>
           <Button variant="ghost" size="icon" onClick={handleNext}>
             <SkipForward className="w-6 h-6" />
-            <span className="sr-only">Next Station</span>
+            <span className="sr-only">अर्को स्टेशन</span>
           </Button>
         </div>
       </CardContent>

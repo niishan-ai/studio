@@ -6,7 +6,7 @@ export function CalendarEvents() {
   return (
     <Card className="h-full">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-sm font-medium">Upcoming Events</CardTitle>
+        <CardTitle className="text-sm font-medium">आगामी कार्यक्रमहरू</CardTitle>
         <CalendarCheck className="w-6 h-6 text-primary" />
       </CardHeader>
       <CardContent>

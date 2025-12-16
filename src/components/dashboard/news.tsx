@@ -7,7 +7,7 @@ export function News() {
   return (
     <Card className="h-full">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className="text-sm font-medium">Latest Headlines</CardTitle>
+        <CardTitle className="text-sm font-medium">ताजा समाचार</CardTitle>
         <Newspaper className="w-6 h-6 text-primary" />
       </CardHeader>
       <CardContent>
