@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "camera-1",
+      "description": "Living Room Camera Feed",
+      "imageUrl": "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsaXZpbmclMjByb29tfGVufDB8fHx8MTc2NTgyMDA5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "living room"
+    },
+    {
+      "id": "camera-2",
+      "description": "Kitchen Camera Feed",
+      "imageUrl": "https://images.unsplash.com/photo-1484154218962-a197022b5858?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxraXRjaGVufGVufDB8fHx8MTc2NTg5NjE2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kitchen"
+    },
+    {
+      "id": "camera-3",
+      "description": "Front Door Camera Feed",
+      "imageUrl": "https://images.unsplash.com/photo-1510266988780-b681a96dca2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmcm9udCUyMGRvb3J8ZW58MHx8fHwxNzY1ODM5Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "front door"
+    },
+    {
+      "id": "camera-4",
+      "description": "Backyard Camera Feed",
+      "imageUrl": "https://images.unsplash.com/photo-1560749003-f4b1e17e2dff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxiYWNreWFyZHxlbnwwfHx8fDE3NjU4ODcxNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "backyard"
+    }
+  ]
 }
