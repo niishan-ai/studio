@@ -1,17 +1,46 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, CalendarDays } from 'lucide-react';
+import { textToSpeech } from '@/ai/flows/tts-flow';
 
 export function DateTime() {
   const [time, setTime] = useState<Date | null>(null);
+  const lastAnnouncedHour = useRef<number | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [audioSrc, setAudioSrc] = useState<string | null>(null);
 
   useEffect(() => {
-    setTime(new Date());
-    const timer = setInterval(() => setTime(new Date()), 1000);
+    const updateTime = async () => {
+      const now = new Date();
+      setTime(now);
+
+      const currentHour = now.getHours();
+      const currentMinute = now.getMinutes();
+      
+      if (currentMinute === 0 && lastAnnouncedHour.current !== currentHour) {
+        lastAnnouncedHour.current = currentHour;
+        const announcement = `अहिले ${now.toLocaleTimeString('ne-NP', { hour: 'numeric', hour12: true})} बज्यो।`;
+        try {
+          const response = await textToSpeech(announcement);
+          setAudioSrc(response.media);
+        } catch (error) {
+          console.error("Failed to generate time announcement:", error);
+        }
+      }
+    };
+    
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (audioSrc && audioRef.current) {
+        audioRef.current.play().catch(e => console.error("Audio playback failed:", e));
+    }
+  }, [audioSrc]);
 
   const nepaliDate = "२०८२ पुष १"; 
   const nepaliDay = "मंगलबार"; 
@@ -41,6 +70,7 @@ export function DateTime() {
           </div>
         </div>
       </CardContent>
+      {audioSrc && <audio ref={audioRef} src={audioSrc} />}
     </Card>
   );
 }
