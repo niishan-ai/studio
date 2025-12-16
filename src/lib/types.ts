@@ -29,6 +29,7 @@ export type FmStation = {
   id: number;
   name: string;
   frequency: string;
+  streamUrl: string;
 };
 
 export type SecurityCamera = {

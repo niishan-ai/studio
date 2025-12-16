@@ -39,10 +39,12 @@ export const calendarEvents: CalendarEvent[] = [
 
 
 export const fmStations: FmStation[] = [
-  { id: 1, name: "रेडियो कान्तिपुर", frequency: "९६.१ मेगाहर्ज" },
-  { id: 2, name: "कालिका एफएम", frequency: "९५.२ मेगाहर्ज" },
-  { id: 3, name: "हिट्स एफएम", frequency: "९१.२ मेगाहर्ज" },
-  { id: 4, name: "उज्यालो ९० नेटवर्क", frequency: "९०.० मेगाहर्ज" },
+  { id: 1, name: "रेडियो कान्तिपुर", frequency: "९६.१ मेगाहर्ज", streamUrl: "https://streaming.softnep.com:8070/stream" },
+  { id: 2, name: "कालिका एफएम", frequency: "९५.२ मेगाहर्ज", streamUrl: "https://streaming.softnep.com:8012/stream" },
+  { id: 3, name: "रेडियो मिर्ची", frequency: "९८.३ मेगाहर्ज", streamUrl: "http://peridot.streamguys.com:7150/Mirchi" },
+  { id: 4, name: "BBC Radio 1", frequency: "English Hits", streamUrl: "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one" },
+  { id: 5, name: "हिट्स एफएम", frequency: "९१.२ मेगाहर्ज", streamUrl: "https://streaming.softnep.com:1935/hitsfm/hitsfm/playlist.m3u8" },
+  { id: 6, name: "उज्यालो ९० नेटवर्क", frequency: "९०.० मेगाहर्ज", streamUrl: "https://streaming.softnep.com:8032/stream" },
 ];
 
 export const securityCameras: SecurityCamera[] = PlaceHolderImages.map(img => ({
