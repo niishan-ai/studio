@@ -7,13 +7,15 @@ import { MusicPlayer } from '@/components/dashboard/music-player';
 import { SecurityCamera } from '@/components/dashboard/security-camera';
 import { Radio } from '@/components/dashboard/radio';
 import { DataRefresh } from '@/components/dashboard/data-refresh';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="p-4 sm:p-6 lg:p-8">
-        <header className="mb-8 flex justify-end">
+        <header className="mb-8 flex justify-end items-center gap-4">
           <DataRefresh />
+          <ThemeToggle />
         </header>
 
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">

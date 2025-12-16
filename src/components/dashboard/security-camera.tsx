@@ -1,58 +1,15 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
+import Image from 'next/image';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Video } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { securityCameras } from '@/lib/data';
+import type { SecurityCamera as SecurityCameraType } from '@/lib/types';
 
 export function SecurityCamera() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
-  const { toast } = useToast();
-
-  useEffect(() => {
-    const getCameraPermission = async () => {
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        console.error('Camera API not supported in this browser.');
-        setHasCameraPermission(false);
-        toast({
-          variant: 'destructive',
-          title: 'Camera Not Supported',
-          description: 'Your browser does not support camera access.',
-        });
-        return;
-      }
-
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        setHasCameraPermission(true);
-
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-        }
-      } catch (error) {
-        console.error('Error accessing camera:', error);
-        setHasCameraPermission(false);
-        toast({
-          variant: 'destructive',
-          title: 'Camera Access Denied',
-          description: 'Please enable camera permissions in your browser settings to use this app.',
-        });
-      }
-    };
-
-    getCameraPermission();
-    
-    // Cleanup function to stop the video stream when the component unmounts
-    return () => {
-      if (videoRef.current && videoRef.current.srcObject) {
-        const stream = videoRef.current.srcObject as MediaStream;
-        const tracks = stream.getTracks();
-        tracks.forEach(track => track.stop());
-      }
-    };
-  }, [toast]);
+  const [selectedCamera, setSelectedCamera] = useState<SecurityCameraType | null>(null);
 
   return (
     <Card>
@@ -61,17 +18,45 @@ export function SecurityCamera() {
         <Video className="w-6 h-6 text-primary" />
       </CardHeader>
       <CardContent>
-        <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden flex items-center justify-center">
-            <video ref={videoRef} className="w-full aspect-video rounded-md" autoPlay muted playsInline />
-        </div>
-        {hasCameraPermission === false && (
-            <Alert variant="destructive" className="mt-4">
-                <AlertTitle>क्यामेरा पहुँच आवश्यक</AlertTitle>
-                <AlertDescription>
-                यो सुविधा प्रयोग गर्न कृपया क्यामेरा पहुँच अनुमति दिनुहोस्।
-                </AlertDescription>
-            </Alert>
-        )}
+        <Dialog>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {securityCameras.map((camera) => (
+              <DialogTrigger asChild key={camera.id} onClick={() => setSelectedCamera(camera)}>
+                <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden flex items-center justify-center cursor-pointer group relative">
+                  <Image
+                    src={camera.imageUrl}
+                    alt={camera.name}
+                    width={600}
+                    height={400}
+                    data-ai-hint={camera.imageHint}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p className="text-white font-semibold">{camera.name}</p>
+                  </div>
+                </div>
+              </DialogTrigger>
+            ))}
+          </div>
+
+          {selectedCamera && (
+            <DialogContent className="max-w-4xl">
+              <DialogHeader>
+                <DialogTitle>{selectedCamera.name}</DialogTitle>
+              </DialogHeader>
+              <div className="aspect-video w-full bg-muted rounded-lg overflow-hidden mt-4">
+                 <Image
+                    src={selectedCamera.imageUrl}
+                    alt={selectedCamera.name}
+                    width={1280}
+                    height={720}
+                    data-ai-hint={selectedCamera.imageHint}
+                    className="w-full h-full object-cover"
+                  />
+              </div>
+            </DialogContent>
+          )}
+        </Dialog>
       </CardContent>
     </Card>
   );
