@@ -32,10 +32,10 @@ export const horoscopeData: HoroscopeData = {
 };
 
 export const calendarEvents: CalendarEvent[] = [
-  { id: 1, name: "तीज", date: "भदौ १०" },
-  { id: 2, name: "इन्द्र जात्रा", date: "असोज १" },
-  { id: 3, name: "दशैं (घटस्थापना)", date: "असोज १७" },
-  { id: 4, name: "तिहार (लक्ष्मी पूजा)", date: "कार्तिक १५" },
+    { id: 1, name: "क्रिसमस डे", date: "पुष १०" },
+    { id: 2, name: "तमु ल्होसार", date: "पुष १५" },
+    { id: 3, name: "पृथ्वी जयन्ती", date: "पुष २७" },
+    { id: 4, name: "माघे संक्रान्ति", date: "माघ १" },
 ];
 
 export const fmStations: FmStation[] = [

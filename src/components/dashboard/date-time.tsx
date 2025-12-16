@@ -13,8 +13,8 @@ export function DateTime() {
     return () => clearInterval(timer);
   }, []);
 
-  const nepaliDate = "२०८१ जेठ २२"; 
-  const nepaliDay = "बुधबार"; 
+  const nepaliDate = "२०८१ मंसिर १"; 
+  const nepaliDay = "आइतबार"; 
   
   const day = time ? time.toLocaleDateString('ne-NP', { weekday: 'long' }) : '...';
   const formattedTime = time ? time.toLocaleTimeString('ne-NP', { hour: 'numeric', minute: 'numeric', hour12: true }) : '...';
