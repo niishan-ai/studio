@@ -8,6 +8,7 @@ import { SecurityCamera } from '@/components/dashboard/security-camera';
 import { Radio } from '@/components/dashboard/radio';
 import { DataRefresh } from '@/components/dashboard/data-refresh';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { Events } from '@/components/dashboard/events';
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
           <Horoscope />
           <Radio />
           <NepaliCalendar />
+          <Events />
           
           <div className="sm:col-span-2 lg:col-span-4 xl:col-span-5 grid grid-cols-1 xl:grid-cols-5 gap-6">
             <div className="xl:col-span-2 h-full">
